@@ -1,0 +1,29 @@
+{
+  "name": "@compilets/unzip-url",
+  "version": "0.0.1-dev",
+  "description": "Unzip a remote ZIP file to local disk",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "unzip-url": "dist/cli.js"
+  },
+  "scripts": {
+    "prepack": "tsc"
+  },
+  "author": "zcbenz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compilets/unzip-url.git"
+  },
+  "bugs": {
+    "url": "https://github.com/compilets/unzip-url/issues"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.8",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "promise-parallel-throttle": "3.5.0"
+  }
+}
