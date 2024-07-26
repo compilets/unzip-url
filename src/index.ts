@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import stream from 'node:stream';
 import * as Throttle from 'promise-parallel-throttle';
 
-import {ZipReader, ZipFileEntry, HttpReader, Uint8ArrayWriter} from '../lib/zip.js';
+import {ZipReader, HttpReader} from '../lib/zip.js';
 
 export async function unzip(url: string, targetDir: string) {
   fs.mkdirSync(targetDir, {recursive: true});
