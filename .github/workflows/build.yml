@@ -19,12 +19,15 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node-version }}
 
       - name: Test
+        shell: bash
         run: |
           yarn
-          yarn test
+          yarn prepack
+          node dist/cli.js https://github.com/yue/build-gn/releases/download/v0.11.1/gn_v0.11.1_mac_x64.zip gn
+          ls -l gn
 
   publish:
     if: startsWith(github.ref, 'refs/tags/')
@@ -42,10 +45,6 @@ jobs:
         run: |
           npm config set git-tag-version=false
           npm version $VERSION
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
 
       - name: Install deps
         run: yarn
