@@ -25,6 +25,5 @@ await unzip('https://some.zip', '/tmp/myzip');
 ## CLI
 
 ```sh
-npm install -g @compilets/unzip-url
-unzip-url https://some.zip /tmp/myzip
+npx unzip-url https://some.zip /tmp/myzip
 ```
