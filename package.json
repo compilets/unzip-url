@@ -12,6 +12,7 @@
   },
   "author": "zcbenz",
   "license": "MIT",
+  "keywords": [ "zip", "unzip", "url", "remote" ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/compilets/unzip-url.git"
