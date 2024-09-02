@@ -1,23 +1,23 @@
 import fs from 'node:fs';
 import stream from 'node:stream';
-import * as Throttle from 'promise-parallel-throttle';
 
 import {ZipReader, HttpReader} from '../lib/zip.js';
+import {newQueue} from '@henrygd/queue';
 
 export async function unzip(url: string, targetDir: string) {
   fs.mkdirSync(targetDir, {recursive: true});
 
   const zip = new ZipReader(new HttpReader(url));
   try {
-    const tasks = [];
+    const queue = newQueue(5);
     for (const entry of await zip.getEntries()) {
       if (entry.directory) {
         fs.mkdirSync(`${targetDir}/${entry.filename}`, {recursive: true});
       } else {
-        tasks.push(() => writeFile(entry, targetDir));
+        queue.add(() => writeFile(entry, targetDir));
       }
     }
-    await Throttle.all(tasks);
+    await queue.done();
   } finally {
     await zip.close();
   }

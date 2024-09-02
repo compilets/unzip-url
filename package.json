@@ -21,10 +21,10 @@
     "url": "https://github.com/compilets/unzip-url/issues"
   },
   "devDependencies": {
-    "@types/node": "20.12.8",
+    "@types/node": "22.5.1",
     "typescript": "5.4.5"
   },
   "dependencies": {
-    "promise-parallel-throttle": "3.5.0"
+    "@henrygd/queue": "1.0.6"
   }
 }
