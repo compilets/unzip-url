@@ -8,7 +8,11 @@ import {newQueue} from '@henrygd/queue';
 export async function unzip(url: string, targetDir: string) {
   fs.mkdirSync(targetDir, {recursive: true});
 
-  const zip = new ZipReader(new HttpReader(url));
+  const zip = new ZipReader(new HttpReader(url, {
+    headers: {
+      'Accept-Encoding': 'identity'
+    }
+  }))
   try {
     const queue = newQueue(5);
     for (const entry of await zip.getEntries()) {
