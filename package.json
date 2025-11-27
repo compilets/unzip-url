@@ -1,6 +1,6 @@
 {
-  "name": "@compilets/unzip-url",
-  "version": "0.0.1-dev",
+  "name": "@gengjiawen/unzip-url",
+  "version": "1.1.0",
   "description": "Unzip a remote ZIP file to local disk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,11 +8,17 @@
     "unzip-url": "dist/cli.js"
   },
   "scripts": {
-    "prepack": "tsc"
+    "prepack": "tsc",
+    "test": "tsx src/test.ts"
   },
   "author": "zcbenz",
   "license": "MIT",
-  "keywords": [ "zip", "unzip", "url", "remote" ],
+  "keywords": [
+    "zip",
+    "unzip",
+    "url",
+    "remote"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/compilets/unzip-url.git"
@@ -22,9 +28,13 @@
   },
   "devDependencies": {
     "@types/node": "22.5.1",
+    "tsx": "^4.20.6",
     "typescript": "5.4.5"
   },
   "dependencies": {
     "@henrygd/queue": "1.0.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
